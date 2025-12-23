@@ -141,6 +141,61 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
       </div>
     </section>
 
+    <!-- Donation Breakdown Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div appAnimateOnScroll>
+            <p class="text-sm text-gray-500 uppercase tracking-wider mb-4">OUR DONATIONS</p>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              How we spend your donations and where it goes
+            </h2>
+            <p class="text-gray-600 mb-8">
+              We understand that when you donate, you want to know exactly where your money is going and we pledge to be transparent.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-4 h-4 rounded-full bg-yellow-500"></div>
+                <span class="text-gray-700">40% Child care and upkeep</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-4 h-4 rounded-full bg-gray-800"></div>
+                <span class="text-gray-700">35% Operations</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-4 h-4 rounded-full bg-amber-200"></div>
+                <span class="text-gray-700">25% Events & campaigns</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center" appAnimateOnScroll>
+            <!-- Donut Chart -->
+            <div class="relative w-64 h-64">
+              <svg viewBox="0 0 100 100" class="w-full h-full transform -rotate-90">
+                <!-- Background circle -->
+                <circle cx="50" cy="50" r="35" fill="none" stroke="#f3f4f6" stroke-width="20"/>
+                <!-- 40% segment - Yellow -->
+                <circle cx="50" cy="50" r="35" fill="none" stroke="#FDB913" stroke-width="20"
+                        stroke-dasharray="87.96 131.95" stroke-dashoffset="0"/>
+                <!-- 35% segment - Dark -->
+                <circle cx="50" cy="50" r="35" fill="none" stroke="#1f2937" stroke-width="20"
+                        stroke-dasharray="76.97 142.94" stroke-dashoffset="-87.96"/>
+                <!-- 25% segment - Light Yellow -->
+                <circle cx="50" cy="50" r="35" fill="none" stroke="#fde68a" stroke-width="20"
+                        stroke-dasharray="54.98 164.93" stroke-dashoffset="-164.93"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <span class="text-3xl font-bold text-gray-900">100%</span>
+                  <p class="text-sm text-gray-500">Transparent</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-20">
@@ -194,4 +249,5 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
 export class HomeComponent {
   dataService = inject(DataService);
 }
+
 

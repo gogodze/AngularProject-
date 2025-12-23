@@ -128,6 +128,40 @@ export class DataService {
     'Logotypexpuml'
   ];
 
+  // Team members
+  readonly teamMembers = [
+    {
+      name: 'John Smith',
+      role: 'Founder',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop'
+    },
+    {
+      name: 'Jane Cooper',
+      role: 'Co-Founder',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=400&fit=crop'
+    },
+    {
+      name: 'Robert Wilson',
+      role: 'Project Manager',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=400&fit=crop'
+    },
+    {
+      name: 'Emily Davis',
+      role: 'Care Coordinator',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=400&fit=crop'
+    },
+    {
+      name: 'Michael Brown',
+      role: 'Volunteer Lead',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop'
+    },
+    {
+      name: 'Sarah Johnson',
+      role: 'Outreach Manager',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=400&fit=crop'
+    }
+  ];
+
   constructor() {}
 
   // Contact form submission

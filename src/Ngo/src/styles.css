@@ -1,9 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
-
-@import "tailwindcss";
-
+/* Tailwind CSS v3 Global Styles */
 /* Import Roboto font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Base styles */
 * {
@@ -104,21 +105,6 @@ h6 {
   background-color: #333333;
 }
 
-/* Neutral button style */
-.btn-neutral {
-  background-color: transparent;
-  color: #1a1a1a;
-  padding: 12px 32px;
-  border: 1px solid #1a1a1a;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
-}
-
-.btn-neutral:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
 /* Color palette based on Figma */
 :root {
   --color-primary: #FDB913;
@@ -147,16 +133,4 @@ h6 {
   }
 }
 
-/* Utility classes */
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 80px;
-  }
-}
 

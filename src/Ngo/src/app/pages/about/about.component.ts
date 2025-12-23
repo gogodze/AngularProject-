@@ -147,6 +147,28 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
       </div>
     </section>
 
+    <!-- Meet Our Team Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-16" appAnimateOnScroll>
+          Meet our team
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          @for (member of dataService.teamMembers; track member.name) {
+            <div class="text-center" appAnimateOnScroll>
+              <div class="relative mb-4 overflow-hidden rounded-lg aspect-[3/4]">
+                <img [src]="member.image"
+                     [alt]="member.name"
+                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"/>
+              </div>
+              <h3 class="font-semibold text-gray-900 text-sm">{{ member.name }}</h3>
+              <p class="text-xs text-gray-500">{{ member.role }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-20">
@@ -166,6 +188,32 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
               Donate
             </a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="py-20 bg-white border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-12">Our Events</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          @for (event of dataService.events; track event.title) {
+            <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl" appAnimateOnScroll>
+              <div class="text-center bg-white p-4 rounded-lg shadow-sm min-w-[80px]">
+                <span class="text-3xl font-bold text-gray-900">{{ event.date }}</span>
+                <p class="text-sm text-gray-500">{{ event.month }}</p>
+              </div>
+              <div class="flex-1">
+                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">{{ event.category }}</p>
+                <h3 class="text-xl font-semibold text-gray-900">{{ event.title }}</h3>
+              </div>
+              <button appButtonHover class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          }
         </div>
       </div>
     </section>

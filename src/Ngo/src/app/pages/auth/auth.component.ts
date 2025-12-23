@@ -4,12 +4,11 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ButtonHoverDirective } from '../../directives/button-hover.directive';
-import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, ButtonHoverDirective, HighlightDirective],
+  imports: [CommonModule, FormsModule, RouterLink, ButtonHoverDirective],
   template: `
     <section class="min-h-screen bg-gray-50 py-20">
       <div class="max-w-md mx-auto px-6">

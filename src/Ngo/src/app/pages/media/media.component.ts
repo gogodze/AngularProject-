@@ -33,7 +33,7 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
           <!-- Content Cards -->
           <div class="space-y-4" appAnimateOnScroll>
             @for (content of dataService.needyContent; track content.title) {
-              <div class="flex gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="flex gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
                 <img [src]="getContentImage($index)"
                      [alt]="content.title"
                      class="w-24 h-24 object-cover rounded-lg flex-shrink-0"/>
@@ -71,14 +71,40 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
       </div>
     </section>
 
-    <!-- Events Section -->
+    <!-- Projects Section -->
     <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <p class="text-sm text-gray-500 uppercase tracking-wider mb-4">PROJECTS WE HAVE DONE</p>
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-12" appAnimateOnScroll>
+          We are creating a place where children with special needs can thrive
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          @for (project of projects; track project.title) {
+            <div class="relative rounded-xl overflow-hidden group cursor-pointer" appAnimateOnScroll>
+              <img [src]="project.image"
+                   [alt]="project.title"
+                   class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <p class="text-xs uppercase tracking-wider opacity-80 mb-1">{{ project.category }}</p>
+                <h3 class="font-semibold">{{ project.title }}</h3>
+                <a href="#" class="text-sm text-yellow-400 mt-2 inline-block hover:text-yellow-300">Learn more →</a>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-6 lg:px-20">
         <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-12">Our Events</h2>
         <div class="grid md:grid-cols-2 gap-8">
           @for (event of dataService.events; track event.title) {
-            <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl" appAnimateOnScroll>
-              <div class="text-center bg-white p-4 rounded-lg shadow-sm">
+            <div class="flex items-start gap-6 p-6 bg-white rounded-xl shadow-sm" appAnimateOnScroll>
+              <div class="text-center bg-gray-50 p-4 rounded-lg min-w-[80px]">
                 <span class="text-3xl font-bold text-gray-900">{{ event.date }}</span>
                 <p class="text-sm text-gray-500">{{ event.month }}</p>
               </div>
@@ -86,7 +112,7 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
                 <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">{{ event.category }}</p>
                 <h3 class="text-xl font-semibold text-gray-900">{{ event.title }}</h3>
               </div>
-              <button class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
+              <button appButtonHover class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors flex-shrink-0">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
@@ -98,7 +124,7 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
     </section>
 
     <!-- Gallery Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-20">
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-12 text-center" appAnimateOnScroll>
           Gallery & Media
@@ -109,7 +135,11 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
               <img [src]="getGalleryImage(i)"
                    alt="Gallery image"
                    class="w-full h-40 lg:h-48 object-cover group-hover:scale-110 transition-transform duration-300"/>
-              <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                </svg>
+              </div>
             </div>
           }
         </div>
@@ -117,14 +147,14 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
     </section>
 
     <!-- Video Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-6 lg:px-20">
         <div class="relative rounded-2xl overflow-hidden" appAnimateOnScroll>
           <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200"
                alt="Video thumbnail"
                class="w-full h-80 lg:h-[500px] object-cover"/>
           <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <button class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
+            <button appButtonHover class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
               <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
               </svg>
@@ -137,6 +167,24 @@ import { ButtonHoverDirective } from '../../directives/button-hover.directive';
 })
 export class MediaComponent {
   dataService = inject(DataService);
+
+  projects = [
+    {
+      title: 'Mission within 10 Outdoor Events',
+      category: 'Mission within 10',
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600'
+    },
+    {
+      title: 'Weekly excursions',
+      category: 'Weekly program',
+      image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600'
+    },
+    {
+      title: 'Monthly public awareness',
+      category: 'Monthly program',
+      image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600'
+    }
+  ];
 
   getContentImage(index: number): string {
     const images = [
